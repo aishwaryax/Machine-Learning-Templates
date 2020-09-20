@@ -18,16 +18,17 @@ for i in range(1, 11):
     wcss.append(kmeans.inertia_)
     
 #Plotting of elbow method for choosing the number of clusters
-'''plt.plot(range(1, 11), wcss)
+plt.plot(range(1, 11), wcss)
 plt.title('The Elbow Method')
 plt.xlabel('Number of clusters')
 plt.ylabel('WCSS')
-plt.show()'''
+plt.show()
 
 # Training the K-Means model on the dataset
 kmeans = KMeans(n_clusters = 5, init = 'k-means++', random_state = 42)
 y_kmeans = kmeans.fit_predict(X)
 
+plt.clf()
 # Visualising the clusters
 plt.scatter(X[y_kmeans == 0, 0], X[y_kmeans == 0, 1], s = 100, c = 'red', label = 'Cluster 1')
 plt.scatter(X[y_kmeans == 1, 0], X[y_kmeans == 1, 1], s = 100, c = 'blue', label = 'Cluster 2')
